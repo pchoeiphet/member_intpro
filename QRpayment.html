@@ -1,0 +1,117 @@
+<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style_buy.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="top-navbar">
+            <nav class="nav-links">
+                <div><a href="contact.html">ติดต่อเรา</a></div>
+                <div class="dropdown">
+                    <img src="image/user.png" alt="Logo" class="nav-logo">
+                       <div class="dropdown-menu">
+                        <a href="profile.html">โปรไฟล์</a>
+                        <a href="order-history.html">ประวัติคำสั่งซื้อ</a>
+                        <a href="claim.html">เคลมสินค้า</a>
+                        <a href="logout.html">ออกจากระบบ</a>
+                        </div>
+                </div>
+                <a href="index.html">
+                <img src="image/united-states-of-america.png" alt="Logo" class="nav-logo">
+                </a>
+            </nav>
+        </div>
+        <!-- Navbar ชั้นล่าง -->
+        <div class="main-navbar">
+            <nav class="nav-links">
+                <div><a href="index.html">หน้าแรก</a></div>
+                <div><a href="reservation_car.html">จองคิวรถ</a></div>
+                <a href="index.html">
+                    <img src="image/Logo.png" alt="Logo" class="nav-logo1">
+                </a>
+                <div><a href="shopping.html">ซื้อ/เช่าอุปกรณ์ทางการแพทย์</a></div>
+            </nav>
+    
+            <div class="cart-icon">
+                <a href="cart.html">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+            </div>
+        </div>
+<body>
+    <section class="QRcode">
+        <img src="image/QRcode.jpeg" alt="" class="qr-preview" id="qr-preview"><br>
+        <div class="bottom-row">
+            <p>แนบหลักฐานยืนยัน</p>
+            <button class="upload-btn" id="upload-btn">อัพโหลด</button>
+        </div><br>
+        <div class="QR-buttons">
+            <button class="cancle">ยกเลิก</button>
+            <button class="confirm">ยืนยัน</button>
+        </div>
+    </section>
+
+    
+    
+    
+    
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const uploadBtn = document.getElementById("upload-btn");
+            const qrPreview = document.getElementById("qr-preview");
+            const cancelBtn = document.getElementById("cancel-btn");
+            const confirmBtn = document.getElementById("confirm-btn");
+        
+            // สร้าง input สำหรับอัพโหลดไฟล์
+            const fileInput = document.createElement('input');
+            fileInput.type = 'file';
+            fileInput.accept = 'image/*';
+        
+            // เมื่อมีการเลือกไฟล์
+            fileInput.addEventListener('change', () => {
+                const file = fileInput.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        qrPreview.src = e.target.result; // อัปเดตรูปภาพใน preview
+                        // แสดงปุ่มยืนยันและยกเลิกหลังจากเลือกไฟล์
+                        cancelBtn.style.display = 'inline-block';
+                        confirmBtn.style.display = 'inline-block';
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        
+            // เมื่อคลิกที่ปุ่ม "อัพโหลด"
+            uploadBtn.addEventListener('click', () => {
+                fileInput.click(); // เปิดหน้าต่างเลือกไฟล์
+            });
+        
+            // เมื่อคลิกที่ปุ่ม "ยืนยัน"
+            confirmBtn.addEventListener('click', () => {
+                alert("ยืนยันการอัพโหลด");
+                cancelBtn.style.display = 'none'; // ซ่อนปุ่มยืนยันหลังการยืนยัน
+                confirmBtn.style.display = 'none'; // ซ่อนปุ่มยกเลิกหลังการยืนยัน
+            });
+        
+            // เมื่อคลิกที่ปุ่ม "ยกเลิก"
+            cancelBtn.addEventListener('click', () => {
+                qrPreview.src = 'image/QRcode.jpeg'; // คืนค่าเป็นภาพเริ่มต้น
+                cancelBtn.style.display = 'none'; // ซ่อนปุ่มยืนยันหลังการยกเลิก
+                confirmBtn.style.display = 'none'; // ซ่อนปุ่มยกเลิกหลังการยกเลิก
+            });
+        });
+        
+        
+    </script>
+    
+</body>
+</html>

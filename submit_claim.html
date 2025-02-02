@@ -1,0 +1,108 @@
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style_submit_claim.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Document</title>
+</head>
+<div class="top-navbar">
+    <nav class="nav-links">
+        <div><a href="contact.html">ติดต่อเรา</a></div>
+        <div class="dropdown">
+            <img src="image/user.png" alt="Logo" class="nav-logo">
+            <div class="dropdown-menu">
+                <a href="profile.html">โปรไฟล์</a>
+                <a href="order-history.html">ประวัติคำสั่งซื้อ</a>
+                <a href="claim.html">เคลมสินค้า</a>
+                <a href="logout.html">ออกจากระบบ</a>
+            </div>
+        </div>
+        <a href="submit_claim.html">
+            <img src="image/united-states-of-america.png" alt="Logo" class="nav-logo">
+        </a>
+    </nav>
+</div>
+
+
+<!-- Navbar ชั้นล่าง -->
+<div class="main-navbar">
+    <nav class="nav-links">
+        <div><a href="submit_claim.html">หน้าแรก</a></div>
+        <div><a href="reservation_car.html">จองคิวรถ</a></div>
+        <a href="submit_claim.html">
+            <img src="image/Logo.png" alt="Logo" class="nav-logo1">
+        </a>  
+        <div><a href="shopping.html">ซื้อ/เช่าอุปกรณ์ทางการแพทย์</a></div>
+    </nav>
+</div>
+</head>
+<body>
+
+<h1>รายละเอียดการเคลม/ต่ออายุการใช้งาน</h1>
+<div class="product-details">
+    <img id="product-image" src="" alt="รายละเอียดสินค้า">
+    <div class="info-group">
+        <h2 id="product-name"></h2>
+        <select id="action" name="action">
+            <option value="" disabled selected>เคลม/ต่ออายุการใช้งาน</option>
+            <option value="claim">เคลม</option>
+            <option value="extend">ต่ออายุการใช้งาน</option>
+        </select>
+    </div>
+    <form action="success_claim.html" method="post">
+        <div class="form-group">
+            <label for="reason">เหตุผล</label>
+            <textarea id="reason" name="reason" rows="5" cols="50" placeholder="กรอกเหตุผลที่ต้องการเคลมหรือใช้งานต่อ"></textarea>
+        </div>
+        <button type="submit">ยืนยัน</button>
+    </form>
+</div>
+
+</body>
+<script>
+    // ฟังก์ชันสำหรับแสดงข้อมูลสินค้าตาม URL Query Parameters
+    function loadProductDetails() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const product = urlParams.get('product');
+
+        const productDetails = {
+            bed: {
+                name: "เตียงไฟฟ้า (ICU Hospital Bed ST-EHDA2)",
+                image: "image/เตียงไฟฟ้า.jpg"
+            },
+            wheelchair: {
+                name: "รถเข็นผู้ป่วย (ST-YK9063 Double Cross Wheelchair)",
+                image: "image/รถเข็น.jpg"
+            },
+            oxygen: {
+                name: "ชุดถังออกซิเจนทางการแพทย์ (แบบอลูมิเนียม USA 0.5Q/MD)",
+                image: "image/ถังอ๊อก.jpg"
+            }
+        };
+
+        if (productDetails[product]) {
+            document.getElementById("product-name").textContent = productDetails[product].name;
+            document.getElementById("product-image").src = productDetails[product].image;
+        }
+    }
+
+    // เรียกใช้ฟังก์ชันเมื่อโหลดหน้าเว็บ
+    window.onload = loadProductDetails;
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const dropdown = document.querySelector(".dropdown");
+        const menu = document.querySelector(".dropdown-menu");
+
+        dropdown.addEventListener("click", (e) => {
+            e.stopPropagation(); // หยุดการกระจายอีเวนต์
+            menu.style.display = menu.style.display === "block" ? "none" : "block";
+        });
+
+        // ซ่อนเมนูเมื่อคลิกที่อื่น
+        document.addEventListener("click", () => {
+            menu.style.display = "none";
+        });
+    });
+</script>

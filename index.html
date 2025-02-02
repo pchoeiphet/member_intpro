@@ -1,0 +1,69 @@
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style_buy.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Document</title>
+</head>
+<div class="top-navbar">
+    <nav class="nav-links">
+        <div><a href="contact.html">ติดต่อเรา</a></div>
+        <div class="dropdown">
+            <img src="image/user.png" alt="Logo" class="nav-logo">
+            <div class="dropdown-menu">
+                <a href="profile.html">โปรไฟล์</a>
+                <a href="order-history.html">ประวัติคำสั่งซื้อ</a>
+                <a href="claim.html">เคลมสินค้า</a>
+                <a href="logout.html">ออกจากระบบ</a>
+            </div>
+        </div>
+        <a href="index.html">
+            <img src="image/united-states-of-america.png" alt="Logo" class="nav-logo">
+        </a>
+    </nav>
+</div>
+
+
+<!-- Navbar ชั้นล่าง -->
+<div class="main-navbar">
+    <nav class="nav-links">
+        <div><a href="index.html">หน้าแรก</a></div>
+        <div><a href="reservation_car.html">จองคิวรถ</a></div>
+        <a href="index.html">
+            <img src="image/Logo.png" alt="Logo" class="nav-logo1">
+        </a>
+        <div><a href="shopping.html">ซื้อ/เช่าอุปกรณ์ทางการแพทย์</a></div>
+    </nav>
+
+    <div class="cart-icon">
+        <a href="cart.html">
+            <i class="fas fa-shopping-cart"></i>
+        </a>
+    </div>
+</div>
+<body>
+    
+</body>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const dropdown = document.querySelector(".dropdown");
+        const menu = document.querySelector(".dropdown-menu");
+
+        dropdown.addEventListener("click", (e) => {
+            e.stopPropagation(); // หยุดการกระจายอีเวนต์
+            menu.style.display = menu.style.display === "block" ? "none" : "block";
+        });
+
+        // ซ่อนเมนูเมื่อคลิกที่อื่น
+        document.addEventListener("click", () => {
+            menu.style.display = "none";
+        });
+    });
+</script>
+
+</html>
