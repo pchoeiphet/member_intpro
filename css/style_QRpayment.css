@@ -1,0 +1,614 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+}
+
+.top-navbar .nav-links {
+    display: flex;
+    justify-content: flex-end;
+    /* ชิดขวา */
+    align-items: center;
+    /* ให้อยู่กลางในแกน Y */
+    gap: 15px;
+    margin-left: auto;
+    /* เพิ่มเพื่อดันให้ทั้งหมดชิดขวา */
+    background-color: #81B3D2;
+    padding: 5px 20px;
+
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    /* จัดให้เนื้อหาใน nav-links อยู่กลางในแนว Y */
+    gap: 15px;
+    /* เพิ่มช่องว่างระหว่างปุ่มหรือภาพ */
+}
+
+.nav-logo1 {
+    width: 200px;
+    /* กำหนดความกว้างใหญ่ขึ้น */
+    height: auto;
+    /* รักษาอัตราส่วน */
+}
+
+
+.social-links a {
+    color: black;
+    margin-right: 10px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.social-links a:last-child {
+    margin-right: 0;
+}
+
+.top-navbar .nav-links a:hover {
+    color: #2D5696;
+    /* เปลี่ยนสีเมื่อเมาส์ไปวาง */
+}
+
+/* Navbar ชั้นล่าง */
+.main-navbar {
+    display: flex;
+    justify-content: space-between;
+    /* แบ่งระหว่าง nav-links และ cart-icon */
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #BEDBEB;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    flex-grow: 1;
+    /* ขยายให้เต็มพื้นที่ที่เหลือ */
+    justify-content: center;
+    /* จัดให้ nav-links อยู่กลาง */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+
+
+/* ตั้งค่า Dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.nav-logo {
+    width: 30px;
+    /* ขนาดรูป */
+    height: auto;
+}
+
+/* เมนูดรอปดาวน์ */
+.dropdown-menu {
+    display: none;
+    /* ซ่อนเมนูเริ่มต้น */
+    position: absolute;
+    top: 100%;
+    /* แสดงใต้ปุ่ม */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    border-radius: 20px;
+    z-index: 1000;
+    min-width: 150px;
+}
+
+/* ลิงก์ในดรอปดาวน์ */
+.dropdown-menu a {
+    display: block;
+    text-decoration: none;
+    color: black;
+    padding: 7px 0;
+    font-size: 14px;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f0f0f0;
+}
+
+/* แสดงเมนูเมื่อโฮเวอร์ */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.cart-icon {
+    position: relative;
+    /* เพิ่ม position เพื่อให้สามารถขยับตำแหน่งได้ */
+    right: 20px;
+    /* ขยับไอคอนไปทางซ้าย */
+}
+
+
+.cart-icon a {
+    font-size: 1.5em;
+    /* ปรับขนาดไอคอน */
+    color: #333;
+    /* สีไอคอน */
+    text-decoration: none;
+    /* ลบขีดเส้นใต้ */
+}
+
+.cart-icon a:hover {
+    color: #2D5696;
+    /* เปลี่ยนสีไอคอนเมื่อชี้ */
+}
+
+.main-navbar .nav-links a:hover {
+    color: #2D5696;
+    /* เปลี่ยนสีเมื่อเมาส์ไปวาง */
+}
+
+
+
+
+/* สไตล์สำหรับช่องค้นหา */
+.search-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* ช่องว่างระหว่าง search bar และ filter */
+    padding: 10px;
+    background-color: #ffffff;
+}
+
+.search-container {
+    position: relative;
+    /* ทำให้ปุ่มสามารถวางไอคอนที่ขวาสุดของ input */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-input {
+    width: 300px;
+    /* ความกว้างของช่องค้นหา */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding-right: 40px;
+    /* ให้มีพื้นที่ข้างขวา สำหรับไอคอนแว่นขยาย */
+}
+
+.search-button {
+    position: absolute;
+    right: 10px;
+    /* ให้ไอคอนอยู่ขวาสุดภายในช่องค้นหา */
+    top: 50%;
+    /* ขยับไอคอนให้ตรงกลางในแนวแกน Y */
+    transform: translateY(-50%);
+    /* ชดเชยเพื่อให้ไอคอนอยู่ตรงกลางพอดี */
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1;
+    /* ให้ไอคอนอยู่เหนือช่องค้นหา */
+}
+
+.search-button i {
+    font-size: 18px;
+    color: #aaa;
+}
+
+.search-button:hover i {
+    color: #81B3D2;
+    /* เปลี่ยนสีไอคอนเมื่อ hover */
+}
+
+/* Filter Icon */
+.filter-icon {
+    margin-left: auto;
+    /* ดันไอคอน Filter ไปขวาสุด */
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+}
+
+
+
+
+/* Sidebar */
+.filter-sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    /* เริ่มต้นซ่อนอยู่ด้านขวา */
+    width: 300px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.filter-sidebar.open {
+    right: 0;
+    /* แสดง Sidebar */
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #81B3D2;
+    color: #fff;
+}
+
+.sidebar-header h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.close-sidebar {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.sidebar-content {
+    padding: 20px;
+}
+
+.sidebar-content label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.filter-select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.search-section .filter-icon:hover {
+    color: #2D5696;
+    /* เปลี่ยนสีไอคอนเมื่อเมาส์ไปวาง */
+}
+
+a {
+    text-decoration: none;
+    /* ลบเส้นใต้ */
+    color: inherit;
+    /* ใช้สีข้อความเดียวกับองค์ประกอบรอบข้าง */
+}
+
+.product-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    gap: 50px;
+    /* เพิ่มระยะห่างระหว่างกล่อง */
+}
+
+
+.product {
+    position: relative;
+    /* ตั้ง position เพื่อใช้จัดวางภายใน */
+    text-decoration: none;
+    /* ลบขีดเส้นใต้ */
+    flex-direction: column;
+    /* เรียงแนวตั้ง */
+    align-items: center;
+    background-color: #f5f5f5;
+    padding: 20px;
+    /* เพิ่ม padding เพื่อทำให้กล่องใหญ่ขึ้น */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    height: 450px;
+    /* กำหนดความสูงที่ต้องการ */
+    transition: background-color 0.3s;
+    overflow: hidden;
+}
+
+
+.product:hover {
+    background-color: #8FB8CD;
+    /* เปลี่ยนสีพื้นหลังเมื่อเมาส์อยู่เหนือ */
+}
+
+.product img {
+    width: 100%;
+    /* ปรับให้เต็มความกว้างของ .category */
+    height: 250px;
+    /* กำหนดความสูงคงที่ */
+    object-fit: cover;
+    /* ทำให้ภาพเต็มกรอบ */
+    border-radius: 10px;
+}
+
+.product p {
+    text-decoration: none;
+    /* ลบขีดเส้นใต้ */
+    justify-content: flex-end;
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+    padding: 5px;
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 5px;
+}
+
+.product .cost {
+    position: absolute;
+    /* จัดตำแหน่งแบบสัมพัทธ์ภายใน .category */
+    bottom: 70px;
+    /* ระยะจากด้านล่าง */
+    right: 10px;
+    /* ระยะจากด้านขวา */
+    background-color: #8FB8CD;
+    /* สีพื้นหลัง */
+    padding: 5px 10px;
+    /* ระยะขอบในกล่อง */
+    border-radius: 30px;
+    /* มุมโค้ง */
+    color: black;
+    /* สีข้อความ */
+    font-weight: bold;
+    /* ข้อความตัวหนา */
+    display: inline-block;
+    /* ทำให้กล่องแสดงผลตามขนาดข้อความ */
+}
+
+
+
+.order {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    width: 60%;
+    height: 50%;
+    margin: 20px auto;
+    justify-content: space-between;
+    position: relative;
+    /* เพื่อให้ตำแหน่งของปุ่มสัมพันธ์กับ .order */
+}
+
+.order img {
+    width: 400px;
+    /* ขนาดของภาพ */
+    height: auto;
+    margin-right: 20px;
+    /* ระยะห่างระหว่างภาพและข้อความ */
+}
+
+.list {
+    margin-left: 10px;
+    text-align: left;
+    /* ให้ข้อความอยู่ทางซ้าย */
+    flex-grow: 1;
+    /* ให้พื้นที่ที่เหลือไปอยู่ที่ .list */
+}
+
+.list p {
+    margin: 5px 0;
+    /* ระยะห่างระหว่างข้อความ */
+}
+
+.order .cost {
+    background-color: #8FB8CD;
+    /* สีพื้นหลัง */
+    padding: 5px 10px;
+    /* ระยะขอบในกล่อง */
+    border-radius: 30px;
+    /* มุมโค้ง */
+    color: black;
+    /* สีข้อความ */
+    font-weight: bold;
+    /* ข้อความตัวหนา */
+    font-size: 1.2em;
+    /* ขนาดฟอนต์ที่เพิ่มขึ้น */
+    display: inline-block;
+    /* ทำให้กล่องแสดงผลตามขนาดข้อความ */
+}
+
+.order .name {
+    font-size: 1.2em;
+    /* ขนาดฟอนต์ที่เพิ่มขึ้น */
+
+}
+
+.order-controls {
+    display: flex;
+    flex-direction: column;
+    /* จัดให้ส่วนเพิ่มลดจำนวนและปุ่มอยู่ในแนวตั้ง */
+    align-items: flex-start;
+    /* จัดชิดซ้าย */
+    margin-top: 20px;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+    margin-top: 100px;
+    margin-right: 50px;
+    justify-content: flex-end;
+    /* ย้ายให้เพิ่มลดจำนวนไปอยู่ทางขวา */
+}
+
+
+.quantity button {
+    font-size: 1.2em;
+    padding: 5px 10px;
+    border: 1px solid #f0f0f0;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    margin: 0 5px;
+    border-radius: 5px;
+}
+
+.quantity button:hover {
+    background-color: #8FB8CD;
+    color: white;
+}
+
+.quantity input {
+    width: 45px;
+    text-align: center;
+    font-size: 1.2em;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.quantity input[type="number"]::-webkit-outer-spin-button,
+.quantity input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.quantity input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.order-buttons {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    /* ระยะห่างระหว่างปุ่ม */
+}
+
+.order-buttons a {
+    background-color: #8FB8CD;
+    /* สีพื้นหลัง */
+    color: black;
+    /* สีข้อความ */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    text-decoration: none;
+    /* ลบเส้นขีดใต้ลิงก์ */
+    display: inline-block;
+    /* ให้ <a> แสดงผลเหมือนปุ่ม */
+    text-align: center;
+    width: auto;
+}
+
+.order-buttons .add-to-cart {
+    background-color: #F8E6DE;
+    /* สีพื้นหลังของปุ่มเพิ่มไปยังตะกร้า */
+}
+
+.order-buttons .confirm-order {
+    background-color: #FFB898;
+    /* สีพื้นหลังของปุ่มยืนยันการสั่งซื้อ */
+}
+
+.order-buttons a:hover {
+    background-color: #fc9362;
+    /* เปลี่ยนสีเมื่อเอาเมาส์ไป */
+}
+
+
+.QRcode {
+    display: flex;
+    flex-direction: column;
+    /* ให้รูปภาพอยู่ด้านบน */
+    align-items: center;
+    /* จัดตำแหน่งให้ตรงกลางในแนวแกน Y */
+    background-color: #f0f0f0;
+    padding: 30px;
+    border-radius: 10px;
+    width: 22%;
+    margin: 20px auto;
+    position: relative;
+    /* เพื่อให้สามารถจัดตำแหน่งปุ่มที่มุมขวาล่างได้ */
+}
+
+.QRcode .bottom-row {
+    display: flex;
+    justify-content: center;
+    /* ให้ข้อความและปุ่มอยู่ตรงกลาง */
+    align-items: center;
+    /* ให้ข้อความและปุ่มอยู่กลางในแนวแกน Y */
+    gap: 10px;
+    /* เว้นระยะระหว่างข้อความและปุ่ม */
+}
+
+.QRcode .qr-preview {
+    max-width: 100%;
+    /* ขยายรูปภาพให้พอดีกับขนาดของ container */
+    height: auto;
+}
+
+.QRcode .upload-btn {
+    padding: 10px 20px;
+    background-color: #D9F1FF;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.QRcode .upload-btn:hover {
+    background-color: #8FB8CD;
+}
+
+/* การจัดตำแหน่งปุ่ม "ยกเลิก" และ "ยืนยัน" ที่มุมขวาล่าง */
+.QR-buttons {
+    display: flex;
+    gap: 10px;
+    margin-right: -200px;
+    /* เว้นระยะจากขอบขวา */
+}
+
+.QR-buttons button {
+    padding: 10px 20px;
+    background-color: #D9F1FF;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.QRcode .QR-buttons .cancle {
+    background-color: #F8E6DE;
+    /* สีพื้นหลังของปุ่มเพิ่มไปยังตะกร้า */
+}
+
+.QRcode .QR-buttons .confirm {
+    background-color: #FFB898;
+    /* สีพื้นหลังของปุ่มยืนยันการสั่งซื้อ */
+}
+
+.QRcode .QR-buttons button:hover {
+    background-color: #fc9362;
+    /* เปลี่ยนสีเมื่อเอาเมาส์ไป */
+}
