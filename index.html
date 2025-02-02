@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style_buy.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <title>Document</title>
+    <script src="javascrip_member/index.js" defer></script>
 </head>
 <div class="top-navbar">
     <nav class="nav-links">
@@ -47,23 +48,5 @@
 <body>
     
 </body>
-
-
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const dropdown = document.querySelector(".dropdown");
-        const menu = document.querySelector(".dropdown-menu");
-
-        dropdown.addEventListener("click", (e) => {
-            e.stopPropagation(); // หยุดการกระจายอีเวนต์
-            menu.style.display = menu.style.display === "block" ? "none" : "block";
-        });
-
-        // ซ่อนเมนูเมื่อคลิกที่อื่น
-        document.addEventListener("click", () => {
-            menu.style.display = "none";
-        });
-    });
-</script>
 
 </html>
